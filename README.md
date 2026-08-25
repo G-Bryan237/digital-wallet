@@ -74,6 +74,34 @@ The Profile tab organizes personal details, language and currency preferences, n
 | Language | TypeScript |
 | Platforms | Android, iOS, and web |
 
+## Demo and Distribution
+
+### Web demo (`.expo.app`)
+
+A URL ending in `.expo.app` opens the web version of Digital Wallet directly in a browser. It does **not** download or install the native mobile application.
+
+**[Open the live Digital Wallet web demo](https://bryan-digital-wallet.expo.app)**
+
+To publish the production web demo with EAS Hosting:
+
+```bash
+npx eas-cli@latest login
+npx expo export --platform web
+npx eas-cli@latest deploy --prod
+```
+
+On the first deployment, choose a globally unique subdomain. Future production deployments will continue using the URL above.
+
+### Downloadable Android demo
+
+To create an Android app that testers can download and install, build the `preview` profile defined in `eas.json`:
+
+```bash
+npx eas-cli@latest build --platform android --profile preview
+```
+
+When the build completes, Expo provides a build page URL and QR code. Share that URL to let testers download the APK. This download link is different from the `.expo.app` web-demo URL.
+
 ## Getting Started
 
 ### Prerequisites
